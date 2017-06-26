@@ -10,5 +10,5 @@ RUN apt-get update && apt-get -y install ethminer
 
 VOLUME ["/root/.ethash"]
 
-COPY ./yam/yam /usr/local/bin/yam
-RUN chmod +x /usr/local/bin/yam
+COPY ./yam/yam_haswell /usr/local/bin/yam_haswell
+RUN chmod +x /usr/local/bin/yam_*
