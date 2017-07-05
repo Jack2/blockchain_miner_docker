@@ -117,3 +117,11 @@ Command-line and configuration file options:
                              documentation for supported proxy types and usage
                              details).
 ```
+
+## nheqminer
+Supported crypto: ZEC
+
+### Example usage
+```bash
+docker run onzeway/blockchain_miner_docker:latest nheqminer -l <YOUR_MINING_URL> -u <YOUR_MINING_USER> -t 4
+```
