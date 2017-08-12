@@ -18,7 +18,10 @@ RUN ln -nfs /usr/local/bin/yam_generic /usr/local/bin/yam
 COPY ./nheqminer/nheqminer /usr/local/bin/nheqminer
 RUN chmod +x /usr/local/bin/nheqminer
 
-RUN cd /usr/local && git clone https://github.com/tpruvot/cpuminer-multi
-RUN cd /usr/local/cpuminer-multi && ./build.sh
-RUN ln -nfs /usr/local/cpuminer-multi/cpuminer /usr/local/bin/cpuminer
-RUN ln -nfs /usr/local/cpuminer-multi/cpuminer /usr/local/bin/minerd
+RUN cd /usr/local && git clone https://github.com/pooler/cpuminer pooler-cpuminner
+RUN cd /usr/local/pooler-cpuminner && ./autogen.sh && ./configure CFLAGS="-O3" && make
+RUN ln -nfs /usr/local/pooler-cpuminner/minerd /usr/local/bin/pooler-minerd
+
+RUN cd /usr/local && git clone https://github.com/OhGodAPet/cpuminer-multi wolf-cpuminner
+RUN cd /usr/local/pooler-cpuminner && ./autogen.sh && ./configure && make
+RUN ln -nfs /usr/local/wolf-cpuminner/minerd /usr/local/bin/wolf-minerd
