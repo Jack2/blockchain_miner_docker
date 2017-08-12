@@ -20,3 +20,5 @@ RUN chmod +x /usr/local/bin/nheqminer
 
 RUN cd /usr/local && git clone https://github.com/tpruvot/cpuminer-multi
 RUN cd /usr/local/cpuminer-multi && ./build.sh
+RUN ln -nfs /usr/local/cpuminer-multi/cpuminer /usr/local/bin/cpuminer
+RUN ln -nfs /usr/local/cpuminer-multi/cpuminer /usr/local/bin/minerd
