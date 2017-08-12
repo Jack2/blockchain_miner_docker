@@ -4,7 +4,7 @@ MAINTAINER Mathieu POTIER <mathieu.potier@onzeway.eu>
 
 LABEL Description="This image provide various way to mine cryto-coins" Vendor="Onzeway" Version="1.0.0"
 
-RUN apt-get update && apt-get -y install software-properties-common
+RUN apt-get update && apt-get -y install software-properties-common git automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++
 RUN add-apt-repository -y ppa:ethereum/ethereum
 RUN apt-get update && apt-get -y install ethminer
 
@@ -17,3 +17,6 @@ RUN ln -nfs /usr/local/bin/yam_generic /usr/local/bin/yam
 
 COPY ./nheqminer/nheqminer /usr/local/bin/nheqminer
 RUN chmod +x /usr/local/bin/nheqminer
+
+RUN cd /usr/local && git clone https://github.com/tpruvot/cpuminer-multi
+RUN cd /usr/local/cpuminer-multi && ./build.sh
